@@ -35,6 +35,11 @@
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
                         echo "<a href=\"taskboard.php?project=".$row["project_name"] . "\">". $row["project_name"]. " - Description: " . $row["project_details"] ."</a>" ."<br>";
+                        echo "
+                            <form action=\"http://localhost/kanbanboard/deleteproject.php?project=" .$row["project_name"] ."\" method=\"post\">
+                                    <input type=\"submit\" name=\"submit\" value=\"Delete\" />
+                            </form>
+                        ";
                     }
                 } else {
                     echo "Create your first project!";

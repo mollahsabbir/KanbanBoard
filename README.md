@@ -5,7 +5,7 @@ A basic kanban board for personal usage. Completely made in HTML,CSS, PHP
 Add as many projects, each of them will have a different board with To-Do, Doing, and Done tasks.
 User can add, remove or change status of any task.
 
-##How t use:
+##How to use:
 (tested with XAMPP)
 
 1) Create the following Database in sql:
