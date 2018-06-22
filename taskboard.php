@@ -28,16 +28,24 @@
                 <?php
                     include('connectsql.php');
                     
-                    $sql = "SELECT task_title, task_details FROM tasks WHERE project_name='" . $_GET['project'] ."' and task_status='To-Do'";
+                    $sql = "SELECT task_title, task_details, task_status FROM tasks WHERE project_name='" . $_GET['project'] ."' and task_status='To-Do'";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
                             echo "<div><p>".$row["task_title"] . "</br>";
-                            echo $row["task_details"] . "</p></div>";
+                            echo $row["task_details"] . "</p>";
+                            echo "
+                            <form action=\"http://localhost/kanbanboard/modifytask.php\" method=\"post\">
+                                <input name=\"project_name\" value=\"". $_GET['project'] ."\"hidden/>
+                                <input name=\"task_title\" value=\"". $row['task_title'] ."\"hidden/>
+                                <input name=\"task_status\" value=\"". $row['task_status'] ."\"hidden/>
+                                <input type=\"submit\" name=\"move\" value=\"->\" />
+                                <input type=\"submit\" name=\"delete\" value=\"X\" />
+                            </form></div>";
                         }
-                    } 
+                    }
                     $conn->close();
                 ?>
 
@@ -47,16 +55,24 @@
                 <?php
                     include('connectsql.php');
                     
-                    $sql = "SELECT task_title, task_details FROM tasks WHERE project_name='" . $_GET['project'] ."' and task_status='Doing'";
+                    $sql = "SELECT task_title, task_details, task_status FROM tasks WHERE project_name='" . $_GET['project'] ."' and task_status='Doing'";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
                             echo "<div><p>".$row["task_title"] . "</br>";
-                            echo $row["task_details"] . "</p></div>";
+                            echo $row["task_details"] . "</p>";
+                            echo "
+                            <form action=\"http://localhost/kanbanboard/modifytask.php\" method=\"post\">
+                                <input name=\"project_name\" value=\"". $_GET['project'] ."\"hidden/>
+                                <input name=\"task_title\" value=\"". $row['task_title'] ."\"hidden/>
+                                <input name=\"task_status\" value=\"". $row['task_status'] ."\"hidden/>
+                                <input type=\"submit\" name=\"move\" value=\"->\" />
+                                <input type=\"submit\" name=\"delete\" value=\"X\" />
+                            </form></div>";
                         }
-                    } 
+                    }
                     $conn->close();
                 ?>
                 
@@ -66,16 +82,23 @@
                 <?php
                     include('connectsql.php');
                     
-                    $sql = "SELECT task_title, task_details FROM tasks WHERE project_name='" . $_GET['project'] ."' and task_status='Done'";
+                    $sql = "SELECT task_title, task_details, task_status FROM tasks WHERE project_name='" . $_GET['project'] ."' and task_status='Done'";
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
                             echo "<div><p>".$row["task_title"] . "</br>";
-                            echo $row["task_details"] . "</p></div>";
+                            echo $row["task_details"] . "</p>";
+                            echo "
+                            <form action=\"http://localhost/kanbanboard/modifytask.php\" method=\"post\">
+                                <input name=\"project_name\" value=\"". $_GET['project'] ."\"hidden/>
+                                <input name=\"task_title\" value=\"". $row['task_title'] ."\"hidden/>
+                                <input name=\"task_status\" value=\"". $row['task_status'] ."\"hidden/>
+                                <input type=\"submit\" name=\"delete\" value=\"X\" />
+                            </form></div>";
                         }
-                    } 
+                    }
                     $conn->close();
                 ?>
             </div>

@@ -27,3 +27,9 @@ CREATE TABLE Tasks (
 ); 
 
 2) Move the project to localhost/htdocs
+
+
+##Bugs
+Since this is meant to be used offline and for personal purposes, it has no security features.
+No Regex checking implemented. So entering some characters in the database will cause an error.
+Ex: the single quote ''.
