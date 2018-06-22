@@ -79,6 +79,26 @@
                     $conn->close();
                 ?>
             </div>
+
+            <div class="addtask">
+            <form action="http://localhost/kanbanboard/addtask.php" method="post">
+                <b>Add a new Task</b>
+                <p>Title: 
+                    <input type="text" name="task_title" size="30" value="" required/>
+                </p>
+                <p>Description: 
+                    <input type="text" name="task_details" size="30" value="" />
+                </p>
+                <p>
+                    <?php
+                        echo "<input name=\"project_name\" size=\"30\" value=\"".$_GET['project'] ."\" hidden/>";  
+                    ?>
+                    <input name="task_status" size="30" value="To-Do" hidden/>
+                    <input type="submit" name="addtask" value="add" />
+                </p>
+            </form>
+            </div>
+
         </div>
     </body>
 

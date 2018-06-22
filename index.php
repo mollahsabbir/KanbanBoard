@@ -7,7 +7,7 @@
     <body>
         
         <div class="inputproject">
-            <form action="http://localhost/kanbanboard/addprojecttoDB.php" method="post">
+            <form action="http://localhost/kanbanboard/addproject.php" method="post">
                 <b>Add a new Project</b>
                 <p>Project Name: 
                     <input type="text" name="project_name" size="30" value="" required/>
