@@ -19,7 +19,7 @@
                     echo $_GET['project']
                 ?>
             </h2>
-            <a align="center" href="index.php">Main Page</a>
+            
         </div>
 
         <div class="wrapper">
@@ -34,7 +34,7 @@
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
-                            echo "<div><p>".$row["task_title"] . "</br>";
+                            echo "<div><p><b>".$row["task_title"] . "</b></br>";
                             echo $row["task_details"] . "</p>";
                             echo "
                             <form action=\"http://localhost/kanbanboard/modifytask.php\" method=\"post\">
@@ -61,7 +61,7 @@
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
-                            echo "<div><p>".$row["task_title"] . "</br>";
+                            echo "<div><p><b>".$row["task_title"] . "</b></br>";
                             echo $row["task_details"] . "</p>";
                             echo "
                             <form action=\"http://localhost/kanbanboard/modifytask.php\" method=\"post\">
@@ -88,7 +88,7 @@
                     if ($result->num_rows > 0) {
                         // output data of each row
                         while($row = $result->fetch_assoc()) {
-                            echo "<div><p>".$row["task_title"] . "</br>";
+                            echo "<div><p><b>".$row["task_title"] . "</b></br>";
                             echo $row["task_details"] . "</p>";
                             echo "
                             <form action=\"http://localhost/kanbanboard/modifytask.php\" method=\"post\">
@@ -104,22 +104,21 @@
             </div>
 
             <div class="addtask">
-            <form action="http://localhost/kanbanboard/addtask.php" method="post">
-                <b>Add a new Task</b>
-                <p>Title: 
-                    <input type="text" name="task_title" size="30" value="" required/>
-                </p>
-                <p>Description: 
-                    <input type="text" name="task_details" size="30" value="" />
-                </p>
-                <p>
-                    <?php
-                        echo "<input name=\"project_name\" size=\"30\" value=\"".$_GET['project'] ."\" hidden/>";  
-                    ?>
-                    <input name="task_status" size="30" value="To-Do" hidden/>
-                    <input type="submit" name="addtask" value="add" />
-                </p>
-            </form>
+                <form action="http://localhost/kanbanboard/addtask.php" method="post">
+                    <b>Add a new Task</b>
+                    <p>Title<br>
+                    <input type="text" name="task_title" size="30" value="" required/></p>
+                    <p>Description
+                    <input type="text" name="task_details" size="30" value="" /></p>
+                    <p>
+                        <?php
+                            echo "<input name=\"project_name\" size=\"30\" value=\"".$_GET['project'] ."\" hidden/>";  
+                        ?>
+                        <input name="task_status" size="30" value="To-Do" hidden/>
+                        <input type="submit" name="addtask" value="add" />
+                    </p>
+                </form>
+                <a align="center" href="index.php">Main Page</a>
             </div>
 
         </div>
