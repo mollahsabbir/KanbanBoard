@@ -1,51 +1,51 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>KanBanMap</title>
+        <title>KanbanBoard</title>
+        <link rel="stylesheet" href="index.css">
     </head>
 
     <body>
-        
-        <div class="inputproject">
-            <form action="http://localhost/kanbanboard/addproject.php" method="post">
-                <b>Add a new Project</b>
-                <p>Project Name: 
+    <b id="index-title" align="center">The<br>Kanban<br>Board</b>
+        <div class="wrapper">
+            <div class="inputproject">
+                <form action="http://localhost/kanbanboard/addproject.php" method="post">
+                    <b>Add a new Project</b>
+                    <p>Project Name:</p>
                     <input type="text" name="project_name" size="30" value="" required/>
-                </p>
-                <p>Project Description: 
+                    <p>Project Description:</p>
                     <input type="text" name="project_details" size="30" value="" />
-                </p>
-                
-    
-                <p>
-                    <input type="submit" name="submit" value="add" />
-                </p>
-            </form>
-        </div>
+                    <p>
+                        <input type="submit" name="submit" value="Add" />
+                    </p>
+                </form>
+            </div>
 
-        <div class="displayprojects">
-            <?php
-                require_once('connectsql.php');
+            <div class="displayprojects">
+                <?php
+                    require_once('connectsql.php');
 
-                
-                $sql = "SELECT project_name, project_details FROM projects";
-                $result = $conn->query($sql);
-
-                if ($result->num_rows > 0) {
-                    // output data of each row
-                    while($row = $result->fetch_assoc()) {
-                        echo "<a href=\"taskboard.php?project=".$row["project_name"] . "\">". $row["project_name"]. " - Description: " . $row["project_details"] ."</a>" ."<br>";
-                        echo "
-                            <form action=\"http://localhost/kanbanboard/deleteproject.php?project=" .$row["project_name"] ."\" method=\"post\">
-                                    <input type=\"submit\" name=\"submit\" value=\"Delete\" />
-                            </form>
-                        ";
+                    
+                    $sql = "SELECT project_name, project_details FROM projects";
+                    $result = $conn->query($sql);
+                    echo "<b>Your Projects</b>";
+                    if ($result->num_rows > 0) {
+                        // output data of each row
+                        while($row = $result->fetch_assoc()) {
+                            echo "<div class=\"project\" >
+                                <div class=\"title-description\" onClick=\"location.href='taskboard.php?project=".$row["project_name"] . "'\"
+                                <b>" . $row["project_name"]."</b>
+                                <p>" . $row["project_details"]. "</p></div>
+                                <form action=\"http://localhost/kanbanboard/deleteproject.php?project=" .$row["project_name"] ."\" method=\"post\">
+                                        <input type=\"submit\" name=\"submit\" value=\"Delete\" />
+                                </form></div>";
+                        }
+                    } else {
+                        echo "<b>Create your first project!</b>";
                     }
-                } else {
-                    echo "Create your first project!";
-                }
-                $conn->close();
-            ?>
+                    $conn->close();
+                ?>
+            </div>
         </div>
     </body>
 

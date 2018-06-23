@@ -1,0 +1,36 @@
+body {
+    font-family: "Lucida Console", Monaco, monospace;
+    background-image: url('img/indexBG.jpg');
+}
+
+.project {
+    background: #555555;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding:1%;
+}
+
+.title-description:hover {
+    cursor: pointer;
+    background:#444444;
+}
+
+#index-title {
+    font-size: 200px;
+    color: white;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000;  
+}
+
+.wrapper{
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-column-gap: 1em; */
+    grid-column-gap: 1em; 
+    color: #ffffff;
+    background: #222222;
+    padding: 2%;
+}
