@@ -1,7 +1,7 @@
 # Synopsis
 
 A basic kanban board for personal usage. Completely made in HTML,CSS, PHP
-![Kanban Board](screenshot.jpg, "Kanban Board")
+![Kanban Board](screenshot.jpg "Kanban Board")
 
 # Functionality
 
